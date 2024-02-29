@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Demo</title>
+		<link href="https://www.layuicdn.com/layui/css/layui.css" rel="stylesheet">
+
+		<script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/layui/2.6.8/layui.min.js"></script>
+	</head>
+	<body>
+		<div style="width: 200px;margin: 0 auto;margin-top: 10px;"><img
+				src="https://myhccc.gitee.io/static/bbj/img/bbjlogoline.png" width="200" /></div>
+		<div class="layui-tab layui-tab-brief">
+			<ul class="layui-tab-title">
+				<li class="layui-this">海报图</li>
+				<li>弹幕库</li>
+				<li>评论库</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">
+					<form class="layui-form" action="" id="myForm">
+						<div class="layui-form-item" style="display: none">
+							<div class="layui-input-block">
+								<input type="radio" name="cmsname" lay-filter="haibaoType" value="maccms10" checked>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">更新方式</label>
+							<div class="layui-input-block">
+								<input type="radio" name="bbjtype" lay-filter="haibaoType" value="hot" checked
+									title="自动更新最热海报">
+								<input type="radio" name="bbjtype" lay-filter="haibaoType" value="new" title="自动更新最新海报">
+								<input type="radio" name="bbjtype" lay-filter="haibaoType" value="even" title="各分类均衡获取">
+							</div>
+						</div>
+						<div class="layui-form-item  haibaoCode">
+							<label class="layui-form-label">更新代码</label>
+							<div class="layui-inline">
+								<dic id="use-php">
+									<input type="radio" name="codetype" lay-filter="haibaoCode" value="php" checked
+										title="使用php代码">
+								</dic>
+								<a target="_blank"
+									href="https://c1dmgq3e3j7.feishu.cn/docx/VR4hdZlB3oEs9yxNbUDcrXtvnxe#XWeYdkZeYo4NuSxNngXcQBcOn0e"><i
+										class="layui-icon layui-icon-question postion-layui"
+										lay-tips="更新代码怎么选择"></i></a>
+
+							</div>
+						</div>
+						<div class="layui-form-item haibaoFiltercondi">
+							<label class="layui-form-label">更新条件</label>
+							<div class="layui-input-block">
+								<input type="radio" name="filtercondi" lay-filter="haibaoFiltercondi" value="doubanid"
+									checked title="豆瓣id">
+								<input type="radio" name="filtercondi" lay-filter="haibaoFiltercondi" value="name"
+									title="影片名称">
+							</div>
+						</div>
+						<div class="layui-form-item haibaoOrderby" style="display: none">
+							<label class="layui-form-label">重复片名</label>
+							<div class="layui-inline">
+								<dic>
+
+									<input type="radio" name="orderby" value="ASC" checked title="取最近一次">
+								</dic>
+								<dic>
+									<input type="radio" name="orderby" value="DESC" title="取第一次">
+									<a target="_blank"
+										href="https://c1dmgq3e3j7.feishu.cn/docx/VR4hdZlB3oEs9yxNbUDcrXtvnxe#Q32zdb2CGoAUBFxkAcecfkl1nKf"><i
+											class="layui-icon layui-icon-question postion-layui"
+											lay-tips="如果出现多个相同的影片名字，选择更新轮播图的一个，详情文档点击查看"></i></a>
+								</dic>
+							</div>
+
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">轮播数量</label>
+								<div class="layui-input-block">
+									<input type="number" name="num" data-step="1" data-maxvalue="20" data-minvalue="1"
+										lay-verify="required" autocomplete="off" class="layui-input num" max="20"
+										min="1" value="10">
+									<a target="_blank"
+										href="https://c1dmgq3e3j7.feishu.cn/docx/VR4hdZlB3oEs9yxNbUDcrXtvnxe#VbB6d3GlYodNwBxQ5tZc7r9Bn5b"><i
+											class="layui-icon layui-icon-question postion-layui"
+											lay-tips="什么是轮播数量"></i></a>
+								</div>
+							</div>
+							<div class="layui-inline ">
+								<label class="layui-form-label">推荐等级</label>
+								<div class="layui-input-block">
+									<select name="level" lay-filter="aihao">
+										<option value="1">推荐1</option>
+										<option value="2">推荐2</option>
+										<option value="3">推荐3</option>
+										<option value="4">推荐4</option>
+										<option value="5">推荐5</option>
+										<option value="6">推荐6</option>
+										<option value="7">推荐7</option>
+										<option value="8">推荐8</option>
+										<option value="9" selected>推荐9</option>
+									</select>
+
+								</div>
+								<a target="_blank"
+									href="https://c1dmgq3e3j7.feishu.cn/docx/VR4hdZlB3oEs9yxNbUDcrXtvnxe#C33SdGlX7odXokxKZ1ecPdnKn2g"><i
+										class="layui-icon layui-icon-question postion-layui"
+										lay-tips="不同模板推荐等级不同，可以通过后台查看幻灯片的推荐值,或者每一个都试试，苹果cms10推荐5或9用的最多"></i></a>
+							</div>
+						</div>
+						<!--                    <div class="layui-form-item haibaoType-hand" style="display: none;">-->
+						<!--                        <div class="layui-inline ">-->
+						<!--                            <label class="layui-form-label">豆瓣id</label>-->
+						<!--                            <div class="layui-input-block">-->
+						<!--                                <input type="text" name="doubanid" autocomplete="off" class="layui-input">-->
+						<!--                            </div>-->
+						<!--                            <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=PZZCQ_6Dq8b5tx1BQpfLCr1hj3dpzTYj&jump_from=webapi&authKey=PIfhNlDLatiiojef4DioNX/uzmRdcamr1BjENIbJXMoc6tJiXFOnpcsE+ImFUK8Q"><i class="layui-icon layui-icon-question postion-layui" lay-tips="豆瓣id，支持多个id，多个id用*连接，例如:3545166*3431541*1546664"></i></a>-->
+
+						<!--                        </div>-->
+						<!--                    </div>-->
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn" lay-submit="" lay-filter="submitBtn">获取代码</button>
+								<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+								<button type="button" class="layui-btn layui-btn-primary"><a
+										href="https://c1dmgq3e3j7.feishu.cn/docx/VR4hdZlB3oEs9yxNbUDcrXtvnxe#XDUadHfgiouezPxoF0gcoIXsnNb">使用教程</a>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="layui-tab-item">
+					<div style="margin: 10px 40px;">通用弹幕库接口地址： https://dm.bbj.icu/dm?ac=dm</div>
+					<div style="margin: 10px 40px;">skapp配置：<img style="border: 1px solid lightseagreen"
+							src="https://img.alicdn.com/imgextra/i3/2874184250/O1CN01FyqLSE1hGYCMKGzSl_!!2874184250-2-ampmedia.png"
+							width="200px" lay-on="test-tips-photos-one"></div>
+					<div style="margin: 10px 40px;;">appto配置：<img style="border: 1px solid lightseagreen"
+							src="https://img.alicdn.com/imgextra/i3/2874184250/O1CN01ccyzEg1hGYCOxx2c7_!!2874184250-2-ampmedia.png"
+							width="200px" lay-on="test-tips-photos-one"></div>
+					<div style="margin: 10px 40px;;">超级播放器网页配置：<img style="border: 1px solid lightseagreen"
+							src="https://img.alicdn.com/imgextra/i2/2874184250/O1CN01rSH54j1hGYCOxzSN0_!!2874184250-0-ampmedia.jpg"
+							width="200px" lay-on="test-tips-photos-one"></div>
+					<div style="margin: 10px 40px;;">直接替换播放器：https://player.bbj.icu/player/index.php?code=qw&from=bbj&if=1&url=<img style="border: 1px solid lightseagreen"
+							src="https://www.huodongxing.com/file/ue/20230601/1124CF72D2CD8E9D25AB4E08E06DC5A5C8/30425135880944184.jpeg"
+							width="200px" lay-on="test-tips-photos-one"></div>
+				</div>
+				<div class="layui-tab-item">
+					<div style="margin: 10px 40px;">
+						 <a href="./pinglun.php?type=all" target="_blank"><button type="button" class="layui-btn layui-bg-blue">更新所有评论</button></a>首次使用请点这个，将会依次更新所有资源的评论<br><br>
+						 <a href="./pinglun.php?type=day" target="_blank"><button type="button" class="layui-btn layui-bg-blue">更新当日新增剧的评论</button></a>每日自动更新新增的剧<br>
+					</div>
+				</div>
+				<div class="layui-tab-item">内容-4</div>
+				<div class="layui-tab-item">内容-5</div>
+			</div>
+		</div>
+		<div>本插件公益开发，用于解放影视站长最后的手动力</div>
+		<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"
+			type="application/javascript"></script>
+		<script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/1.6.1/clipboard.min.js"
+			type="application/javascript"></script>
+		<script>
+			$(".layui-tab-item img").click(function() {
+				var sr = $(this).attr("src")
+				layer.photos({
+					photos: {
+						"title": "BBJ图片放大器",
+						"start": 0,
+						"data": [{
+							"alt": "浩瀚宇宙",
+							"pid": 5,
+							"src": sr,
+						}]
+					},
+					footer: true // 是否显示底部栏 --- 2.8.16+
+				});
+
+			})
+			var formData;
+			layui.use(function() {
+				var form = layui.form;
+
+				form.on('radio(haibaoType)', function(data) {
+					$(".haibaoCode").css("display", "block")
+					if (data.value === "hand") {
+						$(".haibaoType-hand").css("display", "inline-block")
+						$('#use-php').css('display', "none");
+						$('#use-shell').css('display', "none");
+						$('#use-sql').css('display', "inline-block");
+						$("#use-sql input").prop("checked", true);
+						$(".haibaoFiltercondi").css("display", "none")
+						$(".haibaoCode-tb").css("display", "block")
+					} else {
+						$(".haibaoType-hand").css("display", "none")
+						$('#use-sql').css('display', "none");
+						$('#use-php').css('display', "inline-block");
+						$('#use-shell').css('display', "inline-block");
+						$("#use-php input").prop("checked", true);
+						$(".haibaoFiltercondi").css("display", "inline-block")
+						$(".haibaoCode-tb").css("display", "none")
+					}
+					$(".haibaoCode-db").css("display", "none")
+
+
+					form.render();
+				});
+				form.on('radio(haibaoCode)', function(data) {
+					if (data.value === "shell") {
+						$(".haibaoCode-db").css("display", "block")
+						$(".haibaoCode-tb").css("display", "block")
+					} else {
+						$(".haibaoCode-db").css("display", "none")
+						$(".haibaoCode-tb").css("display", "none")
+					}
+				})
+				form.on('radio(haibaoFiltercondi)', function(data) {
+					if (data.value === "name") {
+						$(".haibaoOrderby").css("display", "block")
+					} else {
+						$(".haibaoOrderby").css("display", "none")
+					}
+				})
+				layui.config({
+					intercept: false
+				});
+				form.on('submit(submitBtn)', function(data) {
+					// 阻止表单默认提交行为
+					formData = data.field;
+
+					// 打印输出所有数据
+					console.log(formData);
+					var queryString = Object.keys(formData).map(function(key) {
+						return encodeURIComponent(key) + "=" + encodeURIComponent(formData[key]);
+					}).join("&");
+					var currentUrl = window.location.href;
+
+					// 拼接查询字符串到链接的尾部
+					currentUrl = currentUrl.replace("index.php", "haibao.php") + "?" + queryString;
+					layer.alert(currentUrl, {
+						btn: ['打开链接', '复制链接'],
+						btnAlign: 'c', // 按钮居中显示
+						shadeClose: true,
+						title: '复制此链接并创建定时任务',
+						btn1: function() {
+							window.open(currentUrl)
+							return false
+						},
+						btn2: function() {
+							var content = currentUrl
+							var clipboard = new Clipboard(".layui-layer-btn1", {
+								text: function() {
+									return content;
+								}
+							});
+							clipboard.on('success', function(e) {
+								var othis = $(this);
+								var offset = othis.data('offset');
+								layer.msg('复制成功', {
+									type: 1,
+									time: 1000,
+									offset: 'auto', // 详细可参考 offset 属性
+									id: 'ID-demo-layer-offset-' + offset, // 防止重复弹出
+									content: '<div style="padding: 16px;">复制成功</div>',
+									area: '240px',
+									btnAlign: 'c', // 按钮居中
+									shade: 0, // 不显示遮罩
+								});
+
+
+							});
+							clipboard.on('error', function(e) {
+								layer.msg("图片链接复制失败,请右键手动复制")
+							});
+							return false
+						}
+
+					});
+					form.render();
+
+					return false;
+				})
+
+
+				form.render();
+				$(document).on('keyup', function(e) {
+					if (e.keyCode === 27) {
+						layer.closeAll();
+					}
+				});
+				$('.layui-icon[lay-tips]').hover(function() {
+					var tipText = $(this).attr('lay-tips');
+					layer.tips(tipText, this, {
+						tips: [1, '#000']
+					});
+				}, function() {
+					layer.closeAll('tips');
+				});
+
+			})
+		</script>
+	</body>
+</html>
