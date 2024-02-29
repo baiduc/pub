@@ -1,7 +1,7 @@
 本插件由bbj公益开发，免费使用，官网:https://www.bbj.icu
 qq群:784409031
 ----------------------------------------------------
-插件使用方法：（https://baiduc.github.io/pub/plug/word.html）
+插件使用方法：（https://baiduc.github.io/pub/bbj/plug/word.html）
 
 一.将文件放到跟目录并解压
 二.将后台管理添加到自定义菜单，复制下方配置到自定义菜单,自定义菜单下方点击保存
