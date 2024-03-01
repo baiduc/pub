@@ -167,7 +167,7 @@ curl_close($ch);
 			}
 			$randomUid = rand(1, $userCount);
 			$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder']."&uid=".$randomUid;
-			// echo $url."<br>";
+			  echo "链接：". $url."<br>";
 
 $ch = curl_init();
 
@@ -176,7 +176,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 
 $sqlData = curl_exec($ch);
-
+ echo "结果：". $sqlData"<br>";
 curl_close($ch);
 
 			if($sqlData==null) {
