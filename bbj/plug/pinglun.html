@@ -103,7 +103,7 @@ curl_setopt_array($curl, array(
 ));
 
 $sqlData = curl_exec($curl);
-
+echo "<br>结果".$sqlData;
 curl_close($curl);
 				if($sqlData==null) {
 					echo "无需更新<br>";
