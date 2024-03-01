@@ -319,11 +319,11 @@
 
 					// 拼接查询字符串到链接的尾部
 					currentUrl = currentUrl.replace("index.php", "haibao.php") + "?" + queryString;
-					layer.alert(currentUrl, {
+					layer.alert("复制此链接并创建定时任务，即可每日自动更新海报<br>"+currentUrl, {
 						btn: ['打开链接', '复制链接'],
 						btnAlign: 'c', // 按钮居中显示
 						shadeClose: true,
-						title: '复制此链接并创建定时任务',
+						title: '创建成功',
 						btn1: function() {
 							window.open(currentUrl)
 							return false
