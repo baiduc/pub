@@ -103,7 +103,7 @@ curl_setopt_array($curl, array(
 ));
 
 $sqlData = curl_exec($curl);
-echo "结果".$sqlData"<br>";
+echo "结果".$sqlData."<br>";
 curl_close($curl);
 				if($sqlData==null) {
 					echo "无需更新<br>";
@@ -189,7 +189,7 @@ curl_setopt_array($curl, array(
 ));
 
 $sqlData = curl_exec($curl);
-echo "结果".$sqlData"<br>";
+echo "结果".$sqlData."<br>";
 curl_close($curl);
 			if($sqlData==null) {
 				echo "无需更新<br>";
