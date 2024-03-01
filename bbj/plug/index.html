@@ -381,11 +381,30 @@
 					// 拼接查询字符串到链接的尾部
 					currentUrl = currentUrl.replace("index.php", "haibao.php") + "?type=all&" + queryString;
 					console.log(currentUrl)
+					window.open(currentUrl,'_blank');
 					form.render();
 
 					return false;
 				})
+				form.on('submit(upAll)', function(data) {
+					// 阻止表单默认提交行为
+					formData = data.field;
+						
+					// 打印输出所有数据
+					console.log(formData);
+					var queryString = Object.keys(formData).map(function(key) {
+						return encodeURIComponent(key) + "=" + encodeURIComponent(formData[key]);
+					}).join("&");
+					var currentUrl = window.location.href;
 
+					// 拼接查询字符串到链接的尾部
+					currentUrl = currentUrl.replace("index.php", "haibao.php") + "?type=day&" + queryString;
+					console.log(currentUrl)
+					window.open(currentUrl,'_blank');
+					form.render();
+
+					return false;
+				})
 				form.render();
 				$(document).on('keyup', function(e) {
 					if (e.keyCode === 27) {
