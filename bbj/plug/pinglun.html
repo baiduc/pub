@@ -96,7 +96,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 
 $sqlData = curl_exec($ch);
- echo "结果：". $sqlData"<br>";
+ echo "结果：". $sqlData."<br>";
 curl_close($ch);
 				if($sqlData==null) {
 					echo "无需更新<br>";
@@ -176,7 +176,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 
 $sqlData = curl_exec($ch);
- echo "结果：". $sqlData"<br>";
+ echo "结果：". $sqlData."<br>";
 curl_close($ch);
 
 			if($sqlData==null) {
