@@ -87,7 +87,7 @@ if($type=="day") {
 				}
 							
 				$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".urlencode($_GET['filder'])."&uid=".$userCount;
-				  echo $url."<br>";
+				 // echo $url."<br>";
 
 $curl = curl_init();
 
@@ -103,7 +103,6 @@ curl_setopt_array($curl, array(
 ));
 
 $sqlData = curl_exec($curl);
-echo "<br>结果".$sqlData;
 curl_close($curl);
 				if($sqlData==null) {
 					echo "无需更新<br>";
@@ -173,7 +172,7 @@ curl_close($curl);
 				}
 			}
 			$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".urlencode($_GET['filder'])."&uid=".$userCount;
-			 echo $url."<br>";
+			// echo $url."<br>";
 
 $curl = curl_init();
 
@@ -189,7 +188,7 @@ curl_setopt_array($curl, array(
 ));
 
 $sqlData = curl_exec($curl);
-echo "结果".$sqlData."<br>";
+//echo "结果".$sqlData."<br>";
 curl_close($curl);
 			if($sqlData==null) {
 				echo "无需更新<br>";
