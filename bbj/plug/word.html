@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <style>
+            #cover {
+            background-color: rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            display: none
+        }
+
+        #cover img {
+            width: 90%;
+            position: relative;
+            top: 15%;
+        }
+  </style>
+</head>
 本插件由bbj公益开发，免费使用，无任何加密代码，官网:<a href="https://bbj.icu" target="_blank">https://www.bbj.icu</a><br>
 qq群:<a target='_blank' href='https://qm.qq.com/cgi-bin/qm/qr?k=PZZCQ_6Dq8b5tx1BQpfLCr1hj3dpzTYj&jump_from=webapi&authKey=PIfhNlDLatiiojef4DioNX/uzmRdcamr1BjENIbJXMoc6tJiXFOnpcsE+ImFUK8Q'><img
                         border='0' src='//pub.idqqimg.com/wpa/images/group.png' alt='BB机海报' title='BB机海报'>784409031</a><br>
@@ -5,9 +27,23 @@ qq群:<a target='_blank' href='https://qm.qq.com/cgi-bin/qm/qr?k=PZZCQ_6Dq8b5tx1
 插件使用方法：（https://baiduc.github.io/pub/bbj/plug/word.html）<br>
 <br>
 一.将文件放到跟目录并解压<br>
-<img src="https://baiduc.github.io/pub/bbj/plug/img/14643.png" height="500"><br>
+<img class="loadimg" src="https://baiduc.github.io/pub/bbj/plug/img/14643.png" height="500"><br>
 二.将后台管理添加到自定义菜单，复制下方配置到自定义菜单,自定义菜单下方点击保存<br>
-<img src="https://baiduc.github.io/pub/bbj/plug/img/2747555.png" height="500"><br>
+<img class="loadimg" src="https://baiduc.github.io/pub/bbj/plug/img/2747555.png" height="500"><br>
 BBJ管理,/bbj/index.php<br>
 三.刷新苹果cms后台，可在首页看到BBJ管理<br>
-<img src="https://baiduc.github.io/pub/bbj/plug/img/356651.png" height="500">
+<img class="loadimg" src="https://baiduc.github.io/pub/bbj/plug/img/356651.png" height="500">
+<div id="cover" align="center" ><img src="/"></div>
+  
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/1.9.1/jquery.min.js"
+        type="application/javascript"></script>
+<script>
+      $(".lazyload").click(function () {
+      $("#cover img").attr("src",  $(this).attr("src"))
+        $("#cover").css("display", "block")
+      }
+      $("#cover").click(function(){
+    $("#cover").css("display", "none")
+      })
+</script>
+</html>
