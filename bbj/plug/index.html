@@ -150,10 +150,8 @@
 						<div class="layui-form-item">
 							<label class="layui-form-label">数据状态</label>
 							<div class="layui-input-block">
-								<input type="radio" name="statu" lay-filter="haibaoType" value="1" checked
-									title="已审核">
-								<input type="radio" name="statu" lay-filter="haibaoType" value="0"
-									title="未审核">
+								<input type="radio" name="statu" lay-filter="haibaoType" value="1" checked title="已审核">
+								<input type="radio" name="statu" lay-filter="haibaoType" value="0" title="未审核">
 							</div>
 							<div>未审核状态将不会展示数据</div>
 						</div>
@@ -207,8 +205,7 @@
 						<div class="layui-form-item">
 							<label class="layui-form-label">显示ip地址信息</label>
 							<div class="layui-input-block">
-								<input type="radio" name="Cip" lay-filter="haibaoType" value="0" checked
-									title="是">
+								<input type="radio" name="Cip" lay-filter="haibaoType" value="0" checked title="是">
 								<input type="radio" name="Cip" lay-filter="haibaoType" value="1" title="否">
 							</div>
 							<div>会在评论处显示出ip信息</div>
@@ -223,15 +220,13 @@
 						<div class="layui-form-item">
 							<div class="layui-input-block">
 								<!-- <a href="./pinglun.php?type=all" target="_blank"> -->
-									<button class="layui-btn" lay-submit=""  lay-filter="upAll"
-										>
-										更新所有评论</button>首次使用请点这个，将会依次更新所有资源的评论
+								<button class="layui-btn" lay-submit="" lay-filter="upAll">
+									更新所有评论</button>首次使用请点这个，将会依次更新所有资源的评论
 							</div>
 						</div>
 						<div class="layui-form-item">
 							<div class="layui-input-block">
-								<a href="./pinglun.php?type=day" target="_blank"><button type="button" lay-filter="upDay"
-										class="layui-btn layui-bg-blue">更新当日新增剧的评论</button></a>
+								<button class="layui-btn" lay-filter="upDay" lay-submit="">更新当日新增剧的评论</button>
 							</div>
 						</div>
 					</form>
@@ -370,7 +365,7 @@
 				form.on('submit(upAll)', function(data) {
 					// 阻止表单默认提交行为
 					formData = data.field;
-						
+
 					// 打印输出所有数据
 					console.log(formData);
 					var queryString = Object.keys(formData).map(function(key) {
@@ -381,15 +376,15 @@
 					// 拼接查询字符串到链接的尾部
 					currentUrl = currentUrl.replace("index.php", "pinglun.php") + "?type=all&" + queryString;
 					console.log(currentUrl)
-					window.open(currentUrl,'_blank');
+					window.open(currentUrl, '_blank');
 					form.render();
 
 					return false;
 				})
-				form.on('submit(upAll)', function(data) {
+				form.on('submit(upDay)', function(data) {
 					// 阻止表单默认提交行为
 					formData = data.field;
-						
+
 					// 打印输出所有数据
 					console.log(formData);
 					var queryString = Object.keys(formData).map(function(key) {
@@ -400,7 +395,7 @@
 					// 拼接查询字符串到链接的尾部
 					currentUrl = currentUrl.replace("index.php", "pinglun.php") + "?type=day&" + queryString;
 					console.log(currentUrl)
-					window.open(currentUrl,'_blank');
+					window.open(currentUrl, '_blank');
 					form.render();
 
 					return false;
