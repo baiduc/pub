@@ -45,8 +45,8 @@ if($type=="day") {
 	}
 	echo "1/1\t采集地址{$currentLink}<br>";
 	if($force==null&&$totalCount>20) {
-		$properurl=$protocol.$host.$_SERVER['PHP_SELF'].'?type=all&page=0'."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder'];;
-		$forceurl=$protocol.$host.$_SERVER['PHP_SELF'].'?type='.$type .'&force=on'."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder'];;
+		$properurl=$protocol.$host.$_SERVER['PHP_SELF'].'?type=all&page=0'."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".urlencode($_GET['filder']);;
+		$forceurl=$protocol.$host.$_SERVER['PHP_SELF'].'?type='.$type .'&force=on'."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".urlencode($_GET['filder']);
 		echo "<br>今日新增数据较多，建议依次更新每条数据<a href='".$properurl."'>开始依次更新所有数据</a><br>";
 		echo "无视今日数据量，强制更新今日所有数据，时间会有点长<a href='".$forceurl."'>开始强制更新今日数据</a><br>";
 		echo "每日自动更新评论库,复制此链接创建定时任务<a href='".$forceurl."'>定时任务自动更新评论库链接，右键复制此链接</a><br>";
@@ -86,7 +86,7 @@ if($type=="day") {
 					}
 				}
 							
-				$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder']."&uid=".$userCount;
+				$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".urlencode($_GET['filder'])."&uid=".$userCount;
 				  echo $url."<br>";
 
 $curl = curl_init();
@@ -172,7 +172,7 @@ curl_close($curl);
 					continue;
 				}
 			}
-			$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder']."&uid=".$userCount;
+			$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".urlencode($_GET['filder'])."&uid=".$userCount;
 			 echo $url."<br>";
 
 $curl = curl_init();
