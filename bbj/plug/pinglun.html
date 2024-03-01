@@ -145,7 +145,7 @@ curl_close($curl);
 		echo "当前任务 " . $totalCount . " 条\t";
 	}
 	$pageselect=$page*20;
-	$sql = "SELECT * FROM {$dbtable}vod  order by vod_id asc limit ".$pageselect.",20";
+	$sql = "SELECT * FROM {$dbtable}vod  order by vod_id desc limit ".$pageselect.",20";
 	echo $page."/".$totalCount/20;
 	echo "\t采集地址{$currentLink}<br>";
 	// 执行查询
