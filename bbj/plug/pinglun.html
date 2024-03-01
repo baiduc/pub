@@ -85,8 +85,8 @@ if($type=="day") {
 						continue;
 					}
 				}
-							$randomUid = rand(1, $userCount);
-				$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder']."&uid=".$randomUid;
+							
+				$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder']."&uid=".$userCount;
 				  echo $url."<br>";
 
 $curl = curl_init();
@@ -172,9 +172,8 @@ curl_close($curl);
 					continue;
 				}
 			}
-			$randomUid = rand(1, $userCount);
-			$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder']."&uid=".$randomUid;
-			  echo $url."<br>";
+			$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder']."&uid=".$userCount;
+			 echo $url."<br>";
 
 $curl = curl_init();
 
