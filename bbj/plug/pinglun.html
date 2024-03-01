@@ -1,4 +1,4 @@
-$configFile = '../application/database.php';
+s:8912:"$configFile = '../application/database.php';
 if (!file_exists($configFile)) {
 	die('无法找到数据库配置文件,请在mac中找到配置数据库信息的文件');
 }
@@ -89,20 +89,26 @@ if($type=="day") {
 				$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder']."&uid=".$userCount;
 				  echo $url."<br>";
 
-$curl = curl_init();
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => $url,
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => '',
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => 'POST',
-));
+$ch = curl_init();  
+  
+// 设置请求的 URL  
 
-$sqlData = curl_exec($curl);
+curl_setopt($ch, CURLOPT_URL, $url);  
+  
+// 设置请求方式为 POST  
+curl_setopt($ch, CURLOPT_POST, 1);  
+  
+// 如果有需要，设置 POST 数据，这里为空  
+$postData = array();  
+curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);  
+  
+// 设置返回结果不直接输出，而是存储在变量中  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
+  
+// 执行请求，获取响应  
+$sqlData = curl_exec($ch);  
+
 echo "结果".$sqlData."<br>";
 curl_close($curl);
 				if($sqlData==null) {
@@ -231,3 +237,4 @@ $conn->close();
 	target='_blank'
 	href='https://qm.qq.com/cgi-bin/qm/qr?k=PZZCQ_6Dq8b5tx1BQpfLCr1hj3dpzTYj&jump_from=webapi&authKey=PIfhNlDLatiiojef4DioNX/uzmRdcamr1BjENIbJXMoc6tJiXFOnpcsE+ImFUK8Q'><img
 		border='0' src='//pub.idqqimg.com/wpa/images/group.png' alt='BB机海报' title='BB机海报'>784409031</a>";
+";
