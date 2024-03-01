@@ -89,8 +89,15 @@ if($type=="day") {
 				$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder']."&uid=".$randomUid;
 				// echo $url."<br>";
 
-					$sqlData = file_get_contents($url,false,null);
+$ch = curl_init();
 
+curl_setopt($ch, CURLOPT_URL, $$url); 
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+
+$sqlData = curl_exec($ch);
+
+curl_close($ch);
 				if($sqlData==null) {
 					echo "无需更新<br>";
 				} else {
@@ -162,7 +169,15 @@ if($type=="day") {
 			$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$row["vod_douban_id"]."&vodId=".$row["vod_id"] ."&dbtable={$dbtable}"."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".$_GET['filder']."&uid=".$randomUid;
 			// echo $url."<br>";
 
-				$sqlData = file_get_contents($url,false,null);
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $$url); 
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+
+$sqlData = curl_exec($ch);
+
+curl_close($ch);
 
 			if($sqlData==null) {
 				echo "无需更新<br>";
