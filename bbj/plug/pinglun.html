@@ -214,7 +214,7 @@ curl_close($curl);
 	if($pageselect>$totalCount) {
 		echo "更新结束";
 	} else {
-		$nexturl=$protocol.$host.$_SERVER['PHP_SELF'].'?type='.$type .'&page='.($page+1);
+		$nexturl=$protocol.$host.$_SERVER['PHP_SELF'].'?type='.$type .'&page='.($page+1)."&statu=".$_GET['statu']."&num=".$_GET['num']."&Dmin=".$_GET['Dmin']."&Dmax=".$_GET['Dmax']."&Cmin=".$_GET['Cmin']."&Cmax=".$_GET['Cmax']."&Cip=".$_GET['Cip']."&filder=".urlencode($_GET['filder'])."&uid=".$userCount;
 		// echo $nexturl;
 		echo "暂停3秒后继续>>><a  style='cursor: pointer;text-decoration: underline;color:purple' >如果您的浏览器没有自动跳转，请点击这里</a>";
 		echo '<script>
