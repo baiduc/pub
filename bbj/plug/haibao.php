@@ -21,7 +21,7 @@ $num = $_GET['num'];
 $filtercondi = $_GET['filtercondi'];
 $orderby = $_GET['orderby'];
 $codetype=$_GET['codetype'];
-$url = "https://bbj.icu/BBJ-code?cmsname=maccms10&level={$level}&dbtable={$dbtable}&bbjtype={$bbjtype}&num={$num}&filtercondi={$filtercondi}&orderby={$orderby}&codetype={$codetype}";
+$url = "https://bbj.icu/BBJ-code?cmsname=maccms10&level={$level}&dbtable={$dbtable}&bbjtype={$bbjtype}&num={$num}&filtercondi={$filtercondi}&orderby={$orderby}";
 $data = file_get_contents($url);
 $sqlCommandsArray = explode(';', $data);
 foreach ($sqlCommandsArray as $sqlCommand) {
