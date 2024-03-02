@@ -22,7 +22,27 @@ $filtercondi = $_GET['filtercondi'];
 $orderby = $_GET['orderby'];
 $codetype=$_GET['codetype'];
 $url = "https://bbj.icu/BBJ-code?cmsname=maccms10&level={$level}&dbtable={$dbtable}&bbjtype={$bbjtype}&num={$num}&filtercondi={$filtercondi}&orderby={$orderby}";
-$data = file_get_contents($url);
+
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => $url,
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+));
+
+$data = curl_exec($curl);
+curl_close($curl);
+
+
+
+
 $sqlCommandsArray = explode(';', $data);
 foreach ($sqlCommandsArray as $sqlCommand) {
 	if (!empty(trim($sqlCommand))) {
