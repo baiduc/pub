@@ -1,49 +1,41 @@
-<?php
 
-function setCache($key, $data) {
-    $cacheDir = './cache/';
-    if (!is_dir($cacheDir)) {
-        mkdir($cacheDir, 0755, true);
-    }
-
-    $filename = $cacheDir.md5($key);
-    $data = serialize($data);
-    file_put_contents($filename, $data);
-
+$configFile = '../application/database.php';
+if (!file_exists($configFile)) {
+	die('无法找到数据库配置文件,请在mac中找到配置数据库信息的文件');
 }
-
-function getCache($key) {
-    $cacheDir = './cache/';
-    $filename = $cacheDir.md5($key);
-    if (file_exists($filename)) {
-        $lastModified = filemtime($filename);
-        $currentDateTime = time();
-        if ($currentDateTime - $lastModified < 3600) {
-            return unserialize(file_get_contents($filename));
-        }
-
-    }
-
-    return false; 
+$config = include $configFile;
+$servername = $config['hostname'];
+$port = $config['hostport'];
+$username = $config['username'];
+$password = $config['password'];
+$dbname = $config['database'];
+$dbtable = $config['prefix'];
+$conn = new mysqli($servername, $username, $password, $dbname,$port);
+$currenturl=$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+if ($conn->connect_error) {
+	die("连接数据库失败: " . $conn->connect_error);
 }
-$index = "haibao";
-$cachedData = getCache($index);
-
-if ($cachedData) {
-    eval( $cachedData);
-} else {
-    $ch = curl_init();
-
-    curl_setopt($ch, CURLOPT_URL, "https://baiduc.github.io/pub/bbj/plug/haibao.html");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_exec($ch);
-    $result = curl_multi_getcontent($ch);
-    curl_close($ch);
-    setCache($index, $result);
-    eval( $result);
-
-
+$level = $_GET['level'];
+$bbjtype = $_GET['bbjtype'];
+$num = $_GET['num'];
+$filtercondi = $_GET['filtercondi'];
+$orderby = $_GET['orderby'];
+$codetype=$_GET['codetype'];
+$url = "https://bbj.icu/BBJ-code?cmsname=maccms10&level={$level}&dbtable={$dbtable}&bbjtype={$bbjtype}&num={$num}&filtercondi={$filtercondi}&orderby={$orderby}&codetype={$codetype}";
+$data = file_get_contents($url);
+$sqlCommandsArray = explode(';', $data);
+foreach ($sqlCommandsArray as $sqlCommand) {
+	if (!empty(trim($sqlCommand))) {
+		if ($conn->query($sqlCommand) === TRUE) {
+			echo "成功执行命令：1条<br>";
+		} else {
+			echo "执行命令时出错：$sqlCommand<br>错误信息：" . $conn->error;
+		}
+	}
 }
-
-?>
+$conn->close();
+echo "<br><br>海报已成功更新，请到自己的官网查看。<br>
+请将此链接创建到定时任务，即可实现每日自动更新<br>
+代码由www.bbj.icu生成,有疑问可以联系qq群咨询<a target='_blank'
+                                                         href='https://qm.qq.com/cgi-bin/qm/qr?k=PZZCQ_6Dq8b5tx1BQpfLCr1hj3dpzTYj&jump_from=webapi&authKey=PIfhNlDLatiiojef4DioNX/uzmRdcamr1BjENIbJXMoc6tJiXFOnpcsE+ImFUK8Q'><img
+                        border='0' src='//pub.idqqimg.com/wpa/images/group.png' alt='BB机海报' title='BB机海报'>784409031</a>";
