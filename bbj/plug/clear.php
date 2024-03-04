@@ -34,6 +34,11 @@ function deleteDirectory($dir) {
 	</script>';
 	echo '<script>
 	setTimeout(function() {
+	   document.body.insertAdjacentHTML("beforeend", "请刷新页面<br>");
+	}, 3000);
+	</script>';
+	echo '<script>
+	setTimeout(function() {
 	   window.location.href = "/bbj/index.php";
 	}, 1);
 	</script>';
