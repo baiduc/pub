@@ -1,6 +1,6 @@
 <?php
 function deleteDirectory($dir) {
-		echo "扫描缓存文件<br>------------<br>";
+		echo "扫描缓存文件...<br>------------<br>";
     if (!is_dir($dir)) {
         return;
     }
@@ -8,7 +8,7 @@ function deleteDirectory($dir) {
     $files = array_diff(scandir($dir), array('.', '..'));
 		echo '<script>
 		setTimeout(function() {
-		   document.body.insertAdjacentHTML("beforeend", "检查缓存文件<br>------------<br>");
+		   document.body.insertAdjacentHTML("beforeend", "检查缓存文件...<br>------------<br>");
 		}, 500);
 		</script>';
     foreach ($files as $file) {
@@ -24,12 +24,12 @@ function deleteDirectory($dir) {
     rmdir($dir);
 	echo '<script>
 	setTimeout(function() {
-	   document.body.insertAdjacentHTML("beforeend", "清除缓存文件<br>------------<br>");
+	   document.body.insertAdjacentHTML("beforeend", "清除缓存文件...<br>------------<br>");
 	}, 1000);
 	</script>';
 	echo '<script>
 	setTimeout(function() {
-	   document.body.insertAdjacentHTML("beforeend", "正在重新初始化插件<br>");
+	   document.body.insertAdjacentHTML("beforeend", "正在重新初始化插件...<br>");
 	}, 1500);
 	</script>';
 	echo '<script>
