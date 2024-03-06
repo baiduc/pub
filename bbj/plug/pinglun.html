@@ -318,7 +318,6 @@ function decryptAndDecompress($encryptedData) {
     $decodedData = base64_decode($encryptedData);  
     $key = "Base64aaaaaaaaaa"; 
     $decryptedData = openssl_decrypt($decodedData, 'AES-128-ECB', $key, OPENSSL_RAW_DATA);  
-echo $encryptedData."<br>";
     $uncompressedData = gzdecode($decryptedData);  
     return $uncompressedData;  
 } 
