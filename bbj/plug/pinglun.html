@@ -1,4 +1,4 @@
-<?php
+
 $configFile = '../application/database.php';
 if (!file_exists($configFile)) {
 	die('无法找到数据库配置文件,请在mac中找到配置数据库信息的文件');
@@ -316,4 +316,4 @@ function decryptAndDecompress($encryptedData) {
     $uncompressedData = gzdecode($decryptedData);  
     return $uncompressedData;  
 } 
-?>
+
