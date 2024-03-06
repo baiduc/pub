@@ -225,6 +225,10 @@ foreach ($resultRow as $data) {
 		   }       
 		}
 	}
+$unjsonData=array();
+	if(empty($mergeDouban)){
+	    $unjsonData=array();
+	}else{
 	$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$mergeDouban.
 	    "&vodId=".$mergeVodid.
 	    "&dbtable={$dbtable}".
@@ -237,7 +241,7 @@ foreach ($resultRow as $data) {
 	    "&Cip=".$_GET['Cip'].
 	    "&filder=".urlencode($_GET['filder']).
 	    "&uid=".$userCount;
-	echo $url."<br>";
+// 	echo $url."<br>";
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
 	        CURLOPT_URL => $url,
@@ -254,6 +258,7 @@ foreach ($resultRow as $data) {
 	curl_close($curl);
 	$unData=decryptAndDecompress($encry);
 	$unjsonData = json_decode($unData,true);
+	}
 foreach ($resultRow as $data) {
 			$sqlindex++;
 			echo $sqlindex."、".$data["vod_name"]."\t";
