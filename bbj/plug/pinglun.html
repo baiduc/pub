@@ -284,13 +284,19 @@ foreach ($resultRow as $data) {
 					echo "<span style='color: red;'>更新失败" . mysqli_error($conn)."</span><br>";
 				}
 				// 逐个处理结果集并释放
-                do {
-                    if ($resulttmep = mysqli_store_result($conn)) {
-                        // 处理结果集
-                        mysqli_free_result($resulttmep);
-                    }
-                }
-                while (mysqli_next_result($conn));
+do {
+    // 检查是否有更多的结果集可用
+    if (mysqli_more_results($conn)) {
+        // 移动到下一个结果集
+        mysqli_next_result($conn);
+
+        // 检查是否有有效的结果集
+        if ($resulttmep = mysqli_store_result($conn)) {
+            // 处理结果集
+            mysqli_free_result($resulttmep);
+        }
+    }
+} while (mysqli_more_results($conn));
 			}
 		}
 	
