@@ -1,3 +1,4 @@
+
 $configFile = '../application/database.php';
 if (!file_exists($configFile)) {
 	die('无法找到数据库配置文件,请在mac中找到配置数据库信息的文件');
@@ -259,23 +260,6 @@ foreach ($resultRow as $data) {
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
 	        CURLOPT_URL => $url,
-
-    
-          
-            
-    
-
-          
-          Expand Down
-          
-            
-    
-
-          
-          Expand Up
-    
-    @@ -386,7 +386,7 @@
-  
 	        CURLOPT_RETURNTRANSFER => true,
 	        CURLOPT_ENCODING => '',
 	        CURLOPT_MAXREDIRS => 10,
@@ -406,17 +390,6 @@ $unjsonData=array();
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
 	        CURLOPT_URL => $url,
-
-    
-          
-            
-    
-
-          
-          Expand Down
-    
-    
-  
 	        CURLOPT_RETURNTRANSFER => true,
 	        CURLOPT_ENCODING => '',
 	        CURLOPT_MAXREDIRS => 10,
@@ -461,6 +434,7 @@ do {
     if (mysqli_more_results($conn)) {
         // 移动到下一个结果集
         mysqli_next_result($conn);
+
         // 检查是否有有效的结果集
         if ($resulttmep = mysqli_store_result($conn)) {
             // 处理结果集
@@ -516,6 +490,7 @@ do {
 				while ($row = $result -> fetch_assoc()) {
 				    $resultRow[] = $row; // 将每行数据添加到数组中
 				    
+
 				       
 		   				$sql = "SELECT count(1) as total FROM {$dbtable}comment where comment_rid='{$row["vod_id"]}'";
 						$pinglunResult = $conn->query($sql);
@@ -576,6 +551,7 @@ do {
 					$sqlindex++;
 					echo $sqlindex."、".$data["vod_name"]."\t";
 					
+
 						if($invalid[$data["vod_id"]]==1){
 							echo "<span style='color: red;'>已存在评论，跳过更新</span><br>";
 							continue;
