@@ -1,4 +1,4 @@
-
+s:21486:"
 $configFile = '../application/database.php';
 if (!file_exists($configFile)) {
 	die('无法找到数据库配置文件,请在mac中找到配置数据库信息的文件');
@@ -105,7 +105,7 @@ if($type=="day") {
 		   }       
 		}
 	}
-	$url = "http://111.180.198.212:3636/pinglun/list?doubanid=".$mergeDouban.
+	$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$mergeDouban.
 	    "&vodId=".$mergeVodid.
 	    "&dbtable={$dbtable}".
 	    "&statu=".$_GET['statu'].
@@ -244,7 +244,7 @@ foreach ($resultRow as $data) {
 		   }       
 		}
 	}
-	$url = "http://111.180.198.212:3636/pinglun/list?doubanid=".$mergeDouban.
+	$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$mergeDouban.
 	    "&vodId=".$mergeVodid.
 	    "&dbtable={$dbtable}".
 	    "&statu=".$_GET['statu'].
@@ -374,7 +374,7 @@ $unjsonData=array();
 	if(empty($mergeDouban)){
 	    $unjsonData=array();
 	}else{
-	$url = "http://111.180.198.212:3636/pinglun/list?doubanid=".$mergeDouban.
+	$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$mergeDouban.
 	    "&vodId=".$mergeVodid.
 	    "&dbtable={$dbtable}".
 	    "&statu=".$_GET['statu'].
@@ -517,7 +517,7 @@ do {
 			if(empty($mergeVodname)){
 			    $unjsonData=array();
 			}else{
-			$url = "http://111.180.198.212:3636/pinglun/list?vodname=".urlencode($mergeVodname).
+			$url = "https://dm.bbj.icu/pinglun/list?vodname=".urlencode($mergeVodname).
 			    "&vodId=".$mergeVodid.
 			    "&dbtable={$dbtable}".
 			    "&statu=".$_GET['statu'].
@@ -613,3 +613,4 @@ function decryptAndDecompress($encryptedData) {
     $uncompressedData = gzdecode($decryptedData);  
     return $uncompressedData;  
 } 
+";
