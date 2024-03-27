@@ -386,7 +386,7 @@ $unjsonData=array();
 	    "&Cip=".$_GET['Cip']."&pinglunkey=".$_GET['pinglunkey'].
 	    "&filder=".urlencode($_GET['filder']).
 	    "&uid=".$userCount;
- 	echo $url."<br>";
+ //	echo $url."<br>";
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
 	        CURLOPT_URL => $url,
@@ -529,7 +529,7 @@ do {
 			    "&Cip=".$_GET['Cip']."&pinglunkey=".$_GET['pinglunkey'].
 			    "&filder=".urlencode($_GET['filder']).
 			    "&uid=".$userCount;
-		 	echo $url."<br>";
+		// 	echo $url."<br>";
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
 			        CURLOPT_URL => $url,
