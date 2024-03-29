@@ -212,7 +212,8 @@ foreach ($resultRow as $data) {
 	$mergeVodid="";
 	$resultRow=array();
 	$invalid=array();  
-	//拼接豆瓣
+	$mergeVodname="";
+	//拼接名称
 	if ($result -> num_rows > 0) {
 		// 输出查询结果
 		while ($row = $result -> fetch_assoc()) {
@@ -232,8 +233,8 @@ foreach ($resultRow as $data) {
 						 $invalid[$row["vod_id"]]=1;
 						continue;
 					}else{
-					    $mergeDouban = $row["vod_douban_id"].
-			            ",".$mergeDouban;
+					    $mergeVodname = $row["vod_name"].
+					    ",".$mergeVodname;
 	                    	$mergeVodid=$row["vod_id"].
 			            ",".$mergeVodid;
 					}
@@ -244,7 +245,7 @@ foreach ($resultRow as $data) {
 		   }       
 		}
 	}
-	$url = "https://dm.bbj.icu/pinglun/list?doubanid=".$mergeDouban.
+	$url = "https://dm.bbj.icu/pinglun/list?vodname=".urlencode($mergeVodname).
 	    "&vodId=".$mergeVodid.
 	    "&dbtable={$dbtable}".
 	    "&statu=".$_GET['statu'].
