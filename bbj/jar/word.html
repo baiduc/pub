@@ -1,1 +1,61 @@
-使用教程
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <style>
+	  .loadimg{margin-left: 100px;border: 1px solid lightgreen;}
+            #cover {
+            background-color: rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            display: none
+        }
+
+        #cover img {
+            max-height: 90%;
+            position: relative;
+            top: 1%;
+        }
+  </style>
+</head>
+本软件由bbj公益开发，免费使用，无任何加密代码和后门，官网:<a href="https://bbj.icu" target="_blank">https://www.bbj.icu</a><br>
+q群:<a target='_blank' href='https://qm.qq.com/cgi-bin/qm/qr?k=PZZCQ_6Dq8b5tx1BQpfLCr1hj3dpzTYj&jump_from=webapi&authKey=PIfhNlDLatiiojef4DioNX/uzmRdcamr1BjENIbJXMoc6tJiXFOnpcsE+ImFUK8Q'><img
+                        border='0' src='//pub.idqqimg.com/wpa/images/group.png' alt='BB机海报' title='BB机海报'>784409031</a><br>
+----------------------------------------------------<br>
+插件包含功能：<br>
+	1.app弹幕管理，包含vidz，appto，绿豆..<br>
+	2.app评论管理<br>
+	3.视频重复名称合并<br>
+<a href="https://baiduc.github.io/pub/bbj/jar/BBJ-plugin.jar" target='_blank' style="font-size:25px">插件最新版下载地址</a><br>
+软件使用方法：（https://baiduc.github.io/pub/bbj/jar/word.html）<br>
+<br>
+一：文件导入服务器，放任意位置并解压<br>
+<img class="loadimg" src="./img/1.png" height="100"><br>
+二：安装环境<br>
+<img class="loadimg" src="./img/2.png" height="100"><br>
+<img class="loadimg" src="./img/3.png" height="100"><br>
+三.等待安装完毕<br>
+<img class="loadimg" src="./img/4.png" height="100"><br>
+四.查看实时日志<br>
+<img class="loadimg" src="./img/5.png" height="100"><br>
+<img class="loadimg" src="./img/6.png" height="100"><br>
+<div id="cover" align="center" ><img src="/"></div>
+
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/1.9.1/jquery.min.js"
+        type="application/javascript"></script>
+<script>
+	$(function(){
+		$(".loadimg").click(function () {
+		  $("#cover img").attr("src",  $(this).attr("src"))
+		    $("#cover").css("display", "block")
+		  })
+		  $("#cover").click(function(){
+		$("#cover").css("display", "none")
+		  })
+	})
+
+</script>
+</html>
