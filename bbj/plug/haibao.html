@@ -21,7 +21,7 @@ $num = $_GET['num'];
 $filtercondi = $_GET['filtercondi'];
 $orderby = $_GET['orderby'];
 $codetype=$_GET['codetype'];
-$url = "https://bbj.icu/BBJ-code?cmsname=maccms10&level={$level}&dbtable={$dbtable}&bbjtype={$bbjtype}&num={$num}&filtercondi={$filtercondi}&orderby={$orderby}";
+$url = "https://bibij.icu/BBJ-code?cmsname=maccms10&level={$level}&dbtable={$dbtable}&bbjtype={$bbjtype}&num={$num}&filtercondi={$filtercondi}&orderby={$orderby}";
 
 
 $curl = curl_init();
@@ -56,6 +56,6 @@ foreach ($sqlCommandsArray as $sqlCommand) {
 $conn->close();
 echo "<br><br>海报已成功更新，请到自己的官网查看。<br>
 请将此链接创建到定时任务，即可实现每日自动更新<br>
-代码由www.bbj.icu生成,有疑问可以联系qq群咨询<a target='_blank'
+代码由www.bibij.icu生成,有疑问可以联系qq群咨询<a target='_blank'
                                                          href='https://qm.qq.com/cgi-bin/qm/qr?k=PZZCQ_6Dq8b5tx1BQpfLCr1hj3dpzTYj&jump_from=webapi&authKey=PIfhNlDLatiiojef4DioNX/uzmRdcamr1BjENIbJXMoc6tJiXFOnpcsE+ImFUK8Q'><img
                         border='0' src='//pub.idqqimg.com/wpa/images/group.png' alt='BB机海报' title='BB机海报'>784409031</a>";
